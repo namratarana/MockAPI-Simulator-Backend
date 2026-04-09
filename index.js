@@ -4,12 +4,13 @@ const cors = require('cors');         //cors is used to allow communication with
 const pool = require('./db');         //pool manages the DB connection. we need it to connect our server with the DB
 
 const app = express();                //this creates the express server which is the main server.
-app.use(cors());                      //this tells our express server to allow cors enabling cross origin requests. Without it, the browser will block the requests.
-// app.use(cors({
-//     origin: 'http://localhost:5173',  // Replace with your frontend URL
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
-//     allowedHeaders: ['Content-Type'],  // Allowed headers
-// }));
+// app.use(cors());                      //this tells our express server to allow cors enabling cross origin requests. Without it, the browser will block the requests.
+app.use(cors({
+    // origin: 'http://localhost:5173',  // Replace with your frontend URL
+    origin : 'https://mock-api-simulator.vercel.app/',  // Replace with your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
+    allowedHeaders: ['Content-Type'],  // Allowed headers
+}));
 app.use(express.json());              //this tells the server to parse the JSON request body. Without it the request body is undefined when UI sends JSON.
 
 //Route Handling
