@@ -20,4 +20,6 @@ const pool = new Pool({
   }
 });
 
+console.log("connected");
+
 module.exports = pool;
